@@ -14,7 +14,7 @@ public class PlayerLife : MonoBehaviour
         //if the colliding object is an enemy && and the game isn't over
         if (collision.gameObject.CompareTag("Enemy") && gameManager.isPlaying)
         {
-            Debug.Log("The enemy has been hit!");
+            Debug.Log("The enemy has been hit and your life has been reduced!");
             //kill the enemy
             collision.gameObject.GetComponent<EnemyLife>().Death();
             //Reduce life

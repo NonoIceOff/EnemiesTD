@@ -19,7 +19,7 @@ public class EnemyMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         //move toward the player
         myTransform.position += myTransform.right * moveSpeed * Time.deltaTime;
     }

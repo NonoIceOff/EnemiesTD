@@ -17,14 +17,18 @@ public class GameManager : MonoBehaviour
 
     public Text scoreText; // text used to show the score
 
+    public Text endGameText;
+
     public void PlayerIsDeadStopGame()
     {
         isPlaying = false;
+        endGameText.text = "YOU LOOSE!";
     }
 
     public void PlayerWin()
     {
         isPlaying = false;
+        endGameText.text = "YOU WIN!";
     }
 
     // Update is called once per frame
@@ -36,10 +40,18 @@ public class GameManager : MonoBehaviour
             scoreText.text = score.ToString();
         }
 
+
+        // if the game is in progress and there is still time to play
         if (isPlaying && RemainingTime > 0)
         {
             //reduce reamining time at each frame
             RemainingTime -= Time.deltaTime;
+
+             // if time text is present then update text
+            if (timeValue != null)
+            {
+                timeValue.text = RemainingTime.ToString();
+            }
 
             //if the play time is over
             if (RemainingTime <= 0 && isPlaying)
